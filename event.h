@@ -1,71 +1,53 @@
+//
+// Created by ARÄ°FKURU on 12.05.2023.
+//
+
+#ifndef UNTITLED2_EVENT_H
+#define UNTITLED2_EVENT_H
+
 
 #include <iostream>
 using namespace std;
 class event {
 public:
-	//constructor
-	event() : name(""), catagory(0), hour(0), capacity(0), price(0) , sold(0){}
-	event(string _name, int _catagory, int _hour, int _capacity, int _price,int _sold);
-	//bilgi event hakkýnda
-	void infos();
-	//privatelara eriþim
-	void setName(string _name);
-	string getName();
-	void setCatagory(int _catagory);
-	int getCatagory();
-	void setHour(int _hour);
-	int getHour();
-	void setCapacity(int _Capacity);
-	int getCapacity();
-	void setPrice(int _price);
-	int getPrice();
-	void setSold(int _sold);
-	int getSold();
-	~event();
+    //constructor
+    event(string _name="Unknown", int _catagory=0, int _hour=0, int _capacity=0, int _price=0,int _sold=0);
+    //bilgi event hakkÄ±nda
+    void infos();
+    //privatelara eriÅŸim
+    void setName(string _name);
+    string getName();
+    void setCatagory(int _catagory);
+    int getCatagory();
+    void setHour(int _hour);
+    int getHour();
+    void setCapacity(int _Capacity);
+    int getCapacity();
+    void setPrice(int _price);
+    int getPrice();
+    void setSold(int _sold);
+    int getSold();
+    ~event();
+    static int totalCount;
+    // ...
+    bool operator>( event other) ;
+    bool operator>( int amount) ;
 
+    int operator+(event other);
+    int operator+(int amount);
+
+
+    static void updateTotalCount(int count);
 private:
-	string name;
-	int hour;
-	int capacity;
-	int catagory;
-	int price;
-	int sold;
-};
-class manager {
-public:
-	manager(string _id, int _pin);
-	string getId();
-	void setId(string _id);
-	int getPin();
-	void setPin(int _pin);
-	~manager();
-private:
-	string id;
-	int pin;
-};
-class customer {
-public:
-	string getName();
-	void infos(int i);
-	void setName(string _name);
-	int long long getPhone_number();
-	void setPhone_number(int long long _phone_number);
-	int getPaid();
-	void setPaid(int _Paid);
-	string geteventName();
-	void seteventName(string _eventName);
-	int geteventNumber();
-	void seteventNumber(int _eventNumber);
-	void setseatNumber(int _seatNumber);
-	int getseatNumber();
-	~customer();
-private:
-	string name;
-	int long long phone_number;
-	int paid;
-	string eventName;
-	int eventNumber;
-	int seatNumber;
+    string name;
+    int hour;
+    int capacity;
+    int catagory;
+    int price;
+    int sold;
 };
 
 
+
+
+#endif //UNTITLED2_EVENT_H
